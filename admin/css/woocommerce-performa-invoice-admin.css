@@ -1,0 +1,57 @@
+th#Woocommerce_Performa_Invoice,
+td.Woocommerce_Performa_Invoice,
+th.column-Woocommerce_Performa_Invoice {
+	text-align: center;
+}
+.Woocommerce_Performa_Invoice_link span {
+    font-size: 30px;
+    color: #2A5696;
+}
+.Woocommerce_Performa_Invoice_link:focus {
+	outline: none;
+	box-shadow: none;
+}
+.wox_help_info {
+    background: #ddd;
+    padding: 10px 20px;
+}
+.wox_help_info li span {
+    font-weight: bold;
+    width: 70px;
+    display: block;
+    padding: 0 5px;
+}
+.wox_help_info code {
+    background: transparent;
+    color: #e83e8c;
+}
+
+.metabox-holder #woe_file_url {
+    background: #0073AA;
+}
+.metabox-holder #woe_file_url button{
+    display: none;
+}
+.metabox-holder #woe_file_url h2{
+   border:none !important;
+   color:#fff;
+   text-align: center;
+   cursor: default;
+}
+
+#woe_file_url.closed .inside {
+    display: block;
+}
+#woe_file_url a, #woe_file_url a:focus, #woe_file_url a:hover {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+}
+#woe_file_url .inside  {
+    text-align: center;
+}
+
+td #wox_gd_ClientId, td #wox_gd_ClientSecret {
+    width: 500px;
+}

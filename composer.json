@@ -1,0 +1,14 @@
+{
+    "name": "woocommerce-performa-invoice/woocommerce-performa-invoice",
+    "description": "Woocommerce Performa Invoice",
+    "authors": [
+        {
+            "name": "Faisal Awan",
+            "email": "faisalawan.live@gmail.com"
+        }
+    ],
+    "require": {
+        "phpoffice/phpword": "^0.14.0",
+        "lukebaird/dropbox-v2-php-sdk": "^1.1"
+    }
+}
