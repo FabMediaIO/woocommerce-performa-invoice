@@ -9,7 +9,7 @@
  * Plugin Name:       Woocommerce Performa Invoice
  * Plugin URI:        http://faisalawan.me/projects/woocommerce-performa-invoice
  * Description:       Woocommerce Performa Invoice.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Faisal Awan
  * Author URI:        http://faisalawan.me/
  * Text Domain:       woocommerce-performa-invoice
