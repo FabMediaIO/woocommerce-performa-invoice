@@ -16,6 +16,7 @@
   <h1>Word File Shortcodes Help</h1>
   <ul>
     <li><span>${title}</span> <code>Site Title</code></li>
+    <li><span>${file_title}</span> <code>File Title</code></li>
     <li><span>${description}</span> <code>Site Tagline</code></li>
     <li><span>${date}</span> <code>Order Detail</code></li>
     <li><span>${order}</span> <code>Order ID</code></li>
@@ -31,5 +32,7 @@
     <li><span>${productunit}</span> <code>Single Product Price</code></li>
     <li><span>${productcount}</span> <code>Product Count</code></li>
     <li><span>${productamount}</span> <code>Products Price</code></li>
+    <li><span>${additional_notes}</span> <code>Additional Notes</code></li>
+    <li><span>${thankyou_message}</span> <code>Thank You Message</code></li>
   </ul>
 </div>

@@ -192,6 +192,14 @@ class Woocommerce_Performa_Invoice_Admin {
             array( $this, 'wox_word_template' ), // Callback
             'wox-setting-admin', // Page
             'setting_section_id' // Section           
+        ); 
+
+        add_settings_field(
+            'wox_file_title', // ID
+            'File Title', // Title 
+            array( $this, 'wox_file_title' ), // Callback
+            'wox-setting-admin', // Page
+            'setting_section_id' // Section           
         );  
 
         add_settings_field(
@@ -222,6 +230,14 @@ class Woocommerce_Performa_Invoice_Admin {
             'wox_gd_accesstoken', // ID
             'Generated access token', // Title 
             array( $this, 'wox_gd_accesstoken' ), // Callback
+            'wox-setting-admin', // Page
+            'setting_section_id' // Section           
+        );
+
+        add_settings_field(
+            'wox_thankyou_message', // ID
+            'Thank You Message', // Title 
+            array( $this, 'wox_thankyou_message' ), // Callback
             'wox-setting-admin', // Page
             'setting_section_id' // Section           
         );
@@ -273,6 +289,13 @@ class Woocommerce_Performa_Invoice_Admin {
         if( isset( $input['wox_gd_accesstoken'] ) )
             $new_input['wox_gd_accesstoken'] = $input['wox_gd_accesstoken'];
 
+        if( isset( $input['wox_thankyou_message'] ) )
+            $new_input['wox_thankyou_message'] = $input['wox_thankyou_message'];
+
+        if( isset( $input['wox_file_title'] ) )
+            $new_input['wox_file_title'] = $input['wox_file_title'];
+        
+
         return $new_input;
     }
 
@@ -297,7 +320,7 @@ class Woocommerce_Performa_Invoice_Admin {
 		    	$file_name = str_replace(array('-'), ' ', $file_name);
 		    	$file_name = ucfirst($file_name);
 		    	?>
-		    	<option value="<?php echo $file; ?>" <?php if($this->options['wox_word_template'] == $file){ echo "selected"; } ?>><?php echo $file_name; ?></option>
+		    	<option value="<?php echo $file; ?>" <?php if($this->options['wox_word_template'] == $file){ echo "selected"; } ?>><?php echo $file_name; ?> - Performa Invoice</option>
 		    	<?php } ?>
 		</select>
 	    <?php
@@ -345,6 +368,28 @@ class Woocommerce_Performa_Invoice_Admin {
         ?>
         <input type="text" id="wox_gd_accesstoken" name="wox_option_data[wox_gd_accesstoken]" value="<?php echo $wox_gd_accesstoken; ?>"  />
         <code><a href="https://www.dropbox.com/developers/apps/create" target="_blank">Create a new app on the Dropbox Platform?</a></code>
+        <?php
+    }
+
+    public function wox_thankyou_message()
+    {
+        $wox_thankyou_message = "";
+        if (isset($this->options['wox_thankyou_message']) && $this->options['wox_thankyou_message']) {
+            $wox_thankyou_message = $this->options['wox_thankyou_message'];
+        }
+        ?>
+        <input type="text" id="wox_thankyou_message" name="wox_option_data[wox_thankyou_message]" value="<?php echo $wox_thankyou_message; ?>"  />
+        <?php
+    }
+
+    public function wox_file_title()
+    {
+        $wox_file_title = "";
+        if (isset($this->options['wox_file_title']) && $this->options['wox_file_title']) {
+            $wox_file_title = $this->options['wox_file_title'];
+        }
+        ?>
+        <input type="text" id="wox_file_title" name="wox_option_data[wox_file_title]" value="<?php echo $wox_file_title; ?>"  />
         <?php
     }
 

@@ -29,7 +29,9 @@ class Woocommerce_Performa_Invoice_Activator {
 		if(!$options){
 			$wox_option_data = [
 				'wox_word_template' => 'default.docx',
-				'attach_invoice_in_admin_email' => true
+				'attach_invoice_in_admin_email' => true,
+				'wox_thankyou_message' => 'THANK YOU FOR YOUR BUSINESS!',
+				'wox_file_title' => 'WooCommerce Order Invoice',
 			];
     		update_option( 'wox_option_data', $wox_option_data );
 		}

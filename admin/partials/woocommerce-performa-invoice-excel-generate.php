@@ -11,6 +11,8 @@ $order_items = $order->get_items();
 $get_order_item_totals = $order->get_order_item_totals();
 $symbol = get_woocommerce_currency_symbol($order->get_currency());
 
+$additional_notes = $order->customer_note;
+
 $cart_subtotal = $get_order_item_totals['cart_subtotal']['value'];
 $payment_method = $get_order_item_totals['payment_method']['value'];
 $order_total = $get_order_item_totals['order_total']['value'];
@@ -27,11 +29,15 @@ if($wox_word_template){
     $woe_template_file = $woe_upload_path."templates".DIRECTORY_SEPARATOR."default.docx";
 }
 
+$file_title = $wox_option_data['wox_file_title'];
+$thankyou_message = $wox_option_data['wox_thankyou_message'];
+
 $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($woe_template_file);
 
 $templateProcessor->setValue(
     array(
         'title',
+        'file_title',
         'description',
         'date',
         'order',
@@ -42,9 +48,12 @@ $templateProcessor->setValue(
         'subtotalamount',
         'paymentmethod',
         'totalamount',
+        'additional_notes',
+        'thankyou_message',
     ), 
     array(
         get_option( 'blogname' ),
+        $file_title,
         get_option( 'blogdescription' ),
         wc_format_datetime( $order->get_date_created() ),
         $order->get_order_number(),
@@ -54,7 +63,9 @@ $templateProcessor->setValue(
         $order->get_billing_first_name()." ".$order->get_billing_last_name(),
         $cart_subtotal,
         $payment_method,
-        $order_total
+        $order_total,
+        $additional_notes,
+        $thankyou_message
     )
 );
 
