@@ -30,6 +30,9 @@ if($wox_word_template){
 }
 
 $file_title = $wox_option_data['wox_file_title'];
+
+
+$header_content = str_replace(array('<br/>', '<br />', '</br>'), '<w:br />', $header_content);
 $thankyou_message = $wox_option_data['wox_thankyou_message'];
 
 $templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor($woe_template_file);
@@ -38,6 +41,7 @@ $templateProcessor->setValue(
     array(
         'title',
         'file_title',
+        //'header_content',
         'description',
         'date',
         'order',
@@ -54,6 +58,7 @@ $templateProcessor->setValue(
     array(
         get_option( 'blogname' ),
         $file_title,
+        //$header_content,
         get_option( 'blogdescription' ),
         wc_format_datetime( $order->get_date_created() ),
         $order->get_order_number(),

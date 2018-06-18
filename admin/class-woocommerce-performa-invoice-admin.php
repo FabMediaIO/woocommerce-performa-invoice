@@ -200,7 +200,15 @@ class Woocommerce_Performa_Invoice_Admin {
             array( $this, 'wox_file_title' ), // Callback
             'wox-setting-admin', // Page
             'setting_section_id' // Section           
-        );  
+        );
+
+        /*add_settings_field(
+            'wox_header_content', // ID
+            'File Header Content', // Title 
+            array( $this, 'wox_header_content' ), // Callback
+            'wox-setting-admin', // Page
+            'setting_section_id' // Section           
+        );  */
 
         add_settings_field(
             'wox_email_active', // ID
@@ -294,8 +302,10 @@ class Woocommerce_Performa_Invoice_Admin {
 
         if( isset( $input['wox_file_title'] ) )
             $new_input['wox_file_title'] = $input['wox_file_title'];
-        
 
+        /*if( isset( $input['wox_header_content'] ) )
+            $new_input['wox_header_content'] = $input['wox_header_content'];*/
+        
         return $new_input;
     }
 
@@ -392,6 +402,29 @@ class Woocommerce_Performa_Invoice_Admin {
         <input type="text" id="wox_file_title" name="wox_option_data[wox_file_title]" value="<?php echo $wox_file_title; ?>"  />
         <?php
     }
+
+    /*public function wox_header_content()
+    {
+        $wox_header_content = "";
+        if (isset($this->options['wox_header_content']) && $this->options['wox_header_content']) {
+            $wox_header_content = $this->options['wox_header_content'];
+        }
+
+
+        $editor_id = 'wox_header_content';
+
+        $settings = array(
+            'media_buttons' => false,
+            'quicktags' => false,
+            'textarea_rows' => 5
+        );
+
+        wp_editor( $wox_header_content, $editor_id, $settings );
+        /*?>
+        <textarea id="wox_header_content" name="wox_option_data[wox_header_content]" value="<?php echo $wox_header_content; ?>"></textarea>
+        <?php*/
+        /*
+    }*/
 
     function getTemplates(){
 	    $files=array();
