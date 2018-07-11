@@ -6,7 +6,13 @@ $woe_upload_path = WOE_REPORTS_PATH;
 
 $order = wc_get_order( $order_id );
 
-$get_formatted_billing_address = str_replace('<br/>', '<w:br />', $order->get_formatted_billing_address());
+if($order->get_formatted_shipping_address()){
+    $get_formatted_billing_address = str_replace('<br/>', '<w:br />', $order->get_formatted_shipping_address());
+
+} else {
+    $get_formatted_billing_address = str_replace('<br/>', '<w:br />', $order->get_formatted_billing_address());
+}
+
 $order_items = $order->get_items();
 $get_order_item_totals = $order->get_order_item_totals();
 $symbol = get_woocommerce_currency_symbol($order->get_currency());
