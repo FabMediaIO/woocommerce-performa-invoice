@@ -90,7 +90,7 @@ foreach ( $order_items as $item_id => $item ) {
     
     $product = $item->get_product();
     $product_id = $item->get_product_id();
-    $product_title = $product->get_title();
+    $product_title = get_the_title($product_id);
     $get_sku = $product->get_sku();
     
 
