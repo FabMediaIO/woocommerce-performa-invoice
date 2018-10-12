@@ -85,7 +85,7 @@ $templateProcessor->setValue($keys, $values);
 
 $templateProcessor->cloneRow('productname', count($order_items));
 
-$order_i = 1;
+$order_i = $count = 1;
 foreach ( $order_items as $item_id => $item ) {
     
     $product = $item->get_product();
@@ -121,11 +121,13 @@ foreach ( $order_items as $item_id => $item ) {
     $templateProcessor->setValue("productunit#$order_i", strip_tags($single_price));
     $templateProcessor->setValue("productcount#$order_i", $get_quantity);
     $templateProcessor->setValue("productamount#$order_i", strip_tags($subtotal));
+    $templateProcessor->setValue("productindex#$order_i", $order_i);
 
     //$templateProcessor->setValue("product_var#$order_i", $variable);
     
 
     $order_i++;
+    $count++;
 }
 
 
